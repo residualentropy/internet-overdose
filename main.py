@@ -9,11 +9,13 @@ SLEEP_JOURNAL_SHELL = "journalctl -kg '^PM:.*suspend' | tail -n 1"
 
 # chosen randomly by fair dice roll
 # pure coincidence that it's the 3 in :3
-THRESHOLD_TIME = timedelta(hours= 3)
+THRESHOLD_TIME = timedelta(minutes= 3)
 
-def get_time_since_sleep(subject: 'computer' | 'me'):
+def get_time_since_sleep(subject: str):
     if subject == 'me':
         raise RuntimeError('i dont even want to know')
+    if subject != 'computer':
+        raise RuntimeError('there is me and computer, that is all')
     sub = Popen(SLEEP_JOURNAL_SHELL, shell= True, stdout= PIPE)
     line = next(sub.stdout).decode('utf-8').strip()
     if not line.endswith(': suspend exit'):
@@ -28,7 +30,7 @@ def get_time_since_sleep(subject: 'computer' | 'me'):
 
 def the_british_are_coming():
     system('swaymsg workspace TouchGrass')
-    system('mpv INTERNET_OVERDOSE.mp4')
+    system('mpv --fs INTERNET_OVERDOSE.mp4')
 
 while True:
     print('digging inside your computer for yummy logs...')
@@ -38,4 +40,4 @@ while True:
         the_british_are_coming()
     else:
         print('ur safe... this time')
-    sleep(5 * 60)
+    sleep(60)
