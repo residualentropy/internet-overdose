@@ -8,8 +8,8 @@ from time import sleep
 SLEEP_JOURNAL_SHELL = "journalctl -kg '^PM:.*suspend' | tail -n 1"
 
 # chosen randomly by fair dice roll
-# pure coincidence that it's the 3 in :3
-THRESHOLD_TIME = timedelta(minutes= 3)
+# pure coincidence that it contains the 3 in :3
+THRESHOLD_TIME = timedelta(minutes= 30)
 
 def get_time_since_sleep(subject: str):
     if subject == 'me':
@@ -40,4 +40,4 @@ while True:
         the_british_are_coming()
     else:
         print('ur safe... this time')
-    sleep(60)
+    sleep(5 * 60)
