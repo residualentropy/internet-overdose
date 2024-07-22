@@ -5,7 +5,7 @@ currently only supports linux because i run linux and i'm lazy
 
 You will need to:
 - Have python
-- Download the song INTERNET OVERDOSE (from needy streamer overload)
+- Download the song [INTERNET OVERDOSE](https://www.youtube.com/watch?v=BnkhBwzBqlQ) (from needy streamer overload)
 - Save the song in this directory as `INTERNET_OVERDOSE.mp4`
 - Have `mpv` to play the video
 - Run `python main.py` and be off to the races! :)
